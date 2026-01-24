@@ -1,0 +1,68 @@
+# =========================
+# .NET / ASP.NET Core
+# =========================
+bin/
+obj/
+out/
+
+# Build results
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+AnyCPU/
+
+# =========================
+# Rider / JetBrains
+# =========================
+.idea/
+*.sln.iml
+*.DotSettings.user
+*.DotSettings
+
+# =========================
+# Visual Studio (caso alguém use)
+# =========================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================
+# Logs e temporários
+# =========================
+*.log
+*.tmp
+*.temp
+*.swp
+
+# =========================
+# ASP.NET Core
+# =========================
+appsettings.Development.json
+appsettings.Local.json
+
+# =========================
+# Publicação
+# =========================
+publish/
+*.Publish.xml
+
+# =========================
+# NuGet
+# =========================
+packages/
+.nuget/
+
+# =========================
+# Sistema Operacional
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Secrets
+# =========================
+secrets.json

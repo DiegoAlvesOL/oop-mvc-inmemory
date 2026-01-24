@@ -1,0 +1,9 @@
+
+@model List<Movie>
+
+<h1>Movie</h1>
+@foreach (var m in Model)
+{
+    <p>@m.Title</p>
+    <p>@m.Genre</p>
+}
