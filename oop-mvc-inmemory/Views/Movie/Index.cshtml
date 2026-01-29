@@ -1,9 +1,16 @@
-
 @model List<Movie>
 
-<h1>Movie</h1>
+<h1>Movies</h1>
+
+<a href="/Movie/Create">Add Movie</a>
+
 @foreach (var m in Model)
 {
-    <p>@m.Title</p>
-    <p>@m.Genre</p>
+    <hr />
+    <p><b>Title:</b> @m.Title</p>
+    <p><b>Genre:</b> @m.Genre</p>
+    <p><b>Year:</b> @m.Year</p>
+    <p><b>Rating:</b> @m.Rating</p>
+
+    <a href="/Movie/Edit/@m.Id">Edit</a>
 }

@@ -1,0 +1,21 @@
+@model Movie
+
+<h1>Edit Movie</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <label>Title</label><br />
+    <input asp-for="Title" /><br />
+
+    <label>Genre</label><br />
+    <input asp-for="Genre" /><br />
+
+    <label>Year</label><br />
+    <input asp-for="Year" /><br />
+
+    <label>Rating</label><br />
+    <input asp-for="Rating" /><br /><br />
+
+    <button type="submit">Update</button>
+</form>

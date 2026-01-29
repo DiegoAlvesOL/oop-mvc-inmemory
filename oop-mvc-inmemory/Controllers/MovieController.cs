@@ -6,23 +6,47 @@ namespace oop_mvc_inmemory.Controllers;
 
 public class MovieController : Controller
 {
-    private readonly AppDbContext _dbContext;
-    public MovieController(AppDbContext dbContext)
+    private readonly AppDbContext _db;
+
+    public MovieController(AppDbContext db)
     {
-        _dbContext = dbContext;
+        _db = db;
     }
+
     public IActionResult Index()
     {
-        
-        
-        List<Movie> movies = new List<Movie>()
-        {
-            new Movie { Id = 1, Title = "Inception", Genre = "Sci-Fi",Year = 2016, Rating = 8.5 },
-            new Movie { Id = 2,  Title = "The Godfather", Genre = "Comedy", Year = 2017, Rating = 8.5 },
-            new Movie{ Id = 3, Title = "The Dark Knight", Genre = "Action", Year = 2018, Rating = 10.0 },
-            
-        };
-        return View(movies);
+        return View(_db.Movies.ToList());
     }
-    
+
+    // CREATE
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(Movie movie)
+    {
+        _db.Movies.Add(movie);
+        _db.SaveChanges();
+        return RedirectToAction(nameof(Index));
+    }
+
+    // EDIT
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        var movie = _db.Movies.FirstOrDefault(m => m.Id == id);
+        if (movie == null) return NotFound();
+        return View(movie);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Movie movie)
+    {
+        _db.Movies.Update(movie);
+        _db.SaveChanges();
+        return RedirectToAction(nameof(Index));
+    }
 }
