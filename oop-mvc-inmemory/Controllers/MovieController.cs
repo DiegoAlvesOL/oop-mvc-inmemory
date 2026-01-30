@@ -49,4 +49,43 @@ public class MovieController : Controller
         _db.SaveChanges();
         return RedirectToAction(nameof(Index));
     }
+    
+    //DETAILS
+    [HttpGet]
+    public IActionResult Details(int id)
+    {
+        var movie = _db.Movies.FirstOrDefault(m => m.Id == id);
+        if (movie == null)
+        {
+            return NotFound();
+        }
+        return View(movie);
+    }
+    
+    
+    //DELETE
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var movie = _db.Movies.FirstOrDefault(m => m.Id == id);
+        if (movie == null)
+        {
+            return NotFound();
+        }
+        return View(movie);
+    }
+
+
+    [HttpPost, ActionName("Delete")]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        var movie = _db.Movies.FirstOrDefault(m => m.Id == id);
+        if (movie != null)
+        {
+            _db.Movies.Remove(movie);
+            _db.SaveChanges();
+        }
+        return RedirectToAction(nameof(Index));
+    }
+    
 }

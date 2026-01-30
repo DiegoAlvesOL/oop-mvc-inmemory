@@ -1,0 +1,15 @@
+@model oop_mvc_inmemory.Models.Movie
+
+<h1>Movie Details</h1>
+
+
+<p><b>Title:</b>@Model.Title</p>
+<p><b>Genre:</b>@Model.Genre</p>
+<p><b>Year:</b>@Model.Year</p>
+<p><b>Rating:</b>@Model.Rating</p>
+
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> | 
+    <a asp-action="Index">Back to List</a>
+</p>

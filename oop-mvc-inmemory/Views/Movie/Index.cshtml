@@ -2,15 +2,37 @@
 
 <h1>Movies</h1>
 
-<a href="/Movie/Create">Add Movie</a>
+<p>
+    <a href="/Movie/Create">Add Movie</a>
+</p>
 
-@foreach (var m in Model)
-{
-    <hr />
-    <p><b>Title:</b> @m.Title</p>
-    <p><b>Genre:</b> @m.Genre</p>
-    <p><b>Year:</b> @m.Year</p>
-    <p><b>Rating:</b> @m.Rating</p>
+<table class="table" border="1" cellpadding="5">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Year</th>
+        <th>Rating</th>
+        <th>Actions</th>
+    </tr>
+    
+    </thead>
+    
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Genre</td>
+            <td>@item.Year</td>
+            <td>@item.Rating</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
 
-    <a href="/Movie/Edit/@m.Id">Edit</a>
-}
+    </tbody>
+</table>    
